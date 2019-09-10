@@ -16,6 +16,7 @@
     "babel-preset-react-app": "^9.0.1",
     "camelcase": "^5.2.0",
     "case-sensitive-paths-webpack-plugin": "2.2.0",
+    "connected-react-router": "^6.5.2",
     "css-loader": "^3.2.0",
     "dotenv": "6.2.0",
     "dotenv-expand": "4.2.0",
@@ -139,7 +140,13 @@
       "react-app"
     ],
     "plugins": [
-      ["import", {"libraryName": "antd-mobile", "style": true}]
+      [
+        "import",
+        {
+          "libraryName": "antd-mobile",
+          "style": true
+        }
+      ]
     ]
   },
   "devDependencies": {
@@ -151,10 +158,8 @@
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-standard": "^4.0.1"
   },
-    "theme": {
-	  "brand-primary": "red",
-	  "color-text-base":  "#333"
+  "theme": {
+    "brand-primary": "red",
+    "color-text-base": "#333"
   }
-  
-
 }
