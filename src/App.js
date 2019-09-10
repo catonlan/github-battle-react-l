@@ -1,11 +1,12 @@
 import React from 'react';
+import { Icon as Aicon, } from 'antd';
 import {Drawer, List, NavBar, TabBar, Icon, } from 'antd-mobile';
 import './App.less';
 import thumbImg from './assets/image/gray.png';
 
 class App extends React.Component {
   state = {
-    open: true,
+    open: false,
     selectedTab: 'redTab',
     hidden: false,
     fullScreen: false,
@@ -39,7 +40,7 @@ class App extends React.Component {
       {menus.map((menu, index) => {
         return (<List.Item key={index}
           thumb={menu.thumb}
-        > {menu.title} </List.Item>);
+                > {menu.title} </List.Item>);
       })}
     </List>);
 
@@ -55,10 +56,10 @@ class App extends React.Component {
           onOpenChange={this.onOpenChange}
           open={this.state.open}
           sidebar={sidebar}
-          style={{minHeight: document.documentElement.clientHeight - 100, }}
+          style={{minHeight: document.documentElement.clientHeight - 95, }}
 
         >
-          Github battle
+          主体内容在这里。Github battle
         </Drawer>
 
         <TabBar
@@ -68,14 +69,10 @@ class App extends React.Component {
           unselectedTintColor="#949494"
         >
           <TabBar.Item
-            badge={1}
             data-seed="logId"
-            icon={<div style={{
-              width: '22px',
-              height: '22px',
-              background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat', }}
-                  />
-            }
+            icon={<Aicon style={{ fontSize: '20px', }}
+              type="home"
+            />}
             key="Life"
             onPress={() => {
               this.setState({
@@ -83,26 +80,16 @@ class App extends React.Component {
               });
             }}
             selected={this.state.selectedTab === 'blueTab'}
-            selectedIcon={<div style={{
-              width: '22px',
-              height: '22px',
-              background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  21px 21px no-repeat', }}
-                          />
-            }
-            title="Life"
+            selectedIcon={<Aicon style={{ fontSize: '20px', }}
+              theme="twoTone"
+              type="home" />}
+            title="首页"
           >
-          11111111
           </TabBar.Item>
           <TabBar.Item
-            badge={'new'}
-            data-seed="logId1"
-            icon={
-              <div style={{
-                width: '22px',
-                height: '22px',
-                background: 'url(https://gw.alipayobjects.com/zos/rmsportal/BTSsmHkPsQSPTktcXyTV.svg) center center /  21px 21px no-repeat', }}
-              />
-            }
+            icon={<Aicon style={{ fontSize: '20px', }}
+              type="compass"
+            />}
             key="Koubei"
             onPress={() => {
               this.setState({
@@ -110,26 +97,17 @@ class App extends React.Component {
               });
             }}
             selected={this.state.selectedTab === 'redTab'}
-            selectedIcon={
-              <div style={{
-                width: '22px',
-                height: '22px',
-                background: 'url(https://gw.alipayobjects.com/zos/rmsportal/ekLecvKBnRazVLXbWOnE.svg) center center /  21px 21px no-repeat', }}
-              />
-            }
-            title="Koubei"
+            selectedIcon={<Aicon style={{ fontSize: '20px', }}
+              theme="twoTone"
+              type="compass"
+            />}
+            title="对比"
           >
-          22222222222
           </TabBar.Item>
           <TabBar.Item
-            dot
-            icon={
-              <div style={{
-                width: '22px',
-                height: '22px',
-                background: 'url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  21px 21px no-repeat', }}
-              />
-            }
+            icon={<Aicon style={{ fontSize: '20px', }}
+              type="fire"
+            />}
             key="Friend"
             onPress={() => {
               this.setState({
@@ -137,19 +115,16 @@ class App extends React.Component {
               });
             }}
             selected={this.state.selectedTab === 'greenTab'}
-            selectedIcon={
-              <div style={{
-                width: '22px',
-                height: '22px',
-                background: 'url(https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg) center center /  21px 21px no-repeat', }}
-              />
-            }
-            title="Friend"
+            selectedIcon={<Aicon style={{ fontSize: '20px', }}
+              theme="twoTone"
+              type="fire" />}
+            title="热门"
           >
-          3333333333
           </TabBar.Item>
           <TabBar.Item
-            icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg', }}
+            icon={<Aicon style={{ fontSize: '20px', }}
+              type="question-circle"
+            />}
             key="my"
             onPress={() => {
               this.setState({
@@ -157,10 +132,12 @@ class App extends React.Component {
               });
             }}
             selected={this.state.selectedTab === 'yellowTab'}
-            selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg', }}
-            title="My"
+            selectedIcon={<Aicon style={{ fontSize: '20px', }}
+              theme="twoTone"
+              type="question-circle"
+            />}
+            title="搜索"
           >
-          44444444
           </TabBar.Item>
         </TabBar>
       </div>
