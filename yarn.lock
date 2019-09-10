@@ -941,6 +941,14 @@
   dependencies:
     "@hapi/hoek" "8.x.x"
 
+"@jam3/gsap-promise@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@jam3/gsap-promise/-/gsap-promise-4.0.1.tgz#b1c0fde6dbe06e7597e74e76768c50fd7905a770"
+  integrity sha1-scD95tvgbnWX5052doxQ/XkFp3A=
+  dependencies:
+    gsap "1.19.1"
+    object-assign "^4.1.1"
+
 "@jest/console@^24.7.1", "@jest/console@^24.9.0":
   version "24.9.0"
   resolved "https://registry.yarnpkg.com/@jest/console/-/console-24.9.0.tgz#79b1bc06fb74a8cfb01cbdedf945584b1b9707f0"
@@ -4452,6 +4460,11 @@ growly@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/growly/-/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
   integrity sha1-8QdIy+dq+WS3yWyTxrzCivEgwIE=
+
+gsap@1.19.1:
+  version "1.19.1"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-1.19.1.tgz#480d320c662337c2663f836baf45e91ea024b553"
+  integrity sha1-SA0yDGYjN8JmP4Nrr0XpHqAktVM=
 
 gud@^1.0.0:
   version "1.0.0"
