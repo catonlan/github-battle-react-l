@@ -36,12 +36,12 @@ class App extends React.Component {
       {menus.map((menu, index) => {
         return (<List.Item key={index}
           thumb={menu.thumb}
-        > {menu.title} </List.Item>);
+                > {menu.title} </List.Item>);
       })}
     </List>);
 
     return (
-      <div>
+      <div className="App">
         <NavBar icon={<Icon type="ellipsis" />}
           onLeftClick={this.onOpenChange}
         >Battle</NavBar>
@@ -53,6 +53,7 @@ class App extends React.Component {
           open={this.state.open}
           sidebar={sidebar}
           style={{minHeight: document.documentElement.clientHeight, }}
+
         >
           Github battle
         </Drawer>
