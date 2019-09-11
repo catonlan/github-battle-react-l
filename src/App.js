@@ -4,6 +4,8 @@ import {Drawer, NavBar, TabBar, Icon, } from 'antd-mobile';
 import './styles/App.less';
 import thumbImg from './assets/image/gray.png';
 import Sidebar from './components/Sidebar';
+import {connect, } from 'react-redux';
+import {toggleSlidebar, } from './redux/actions/slidebar';
 
 class App extends React.Component {
   state = {
@@ -12,10 +14,10 @@ class App extends React.Component {
     footerHidden: false,
     // fullScreen: false,
   }
-  onOpenChange = (...args) => {
-    console.log(args);
-    this.setState({sliderOpen: !this.state.sliderOpen, });
-  }
+  // onOpenChange = (...args) => {
+  //   console.log(args);
+  //   this.setState({sliderOpen: !this.state.sliderOpen, });
+  // }
 
   render() {
     const menus = [
@@ -48,14 +50,14 @@ class App extends React.Component {
     return (
       <div className="App">
         <NavBar icon={<Icon type="ellipsis" />}
-          onLeftClick={this.onOpenChange}
+          onLeftClick={() => this.props.toggleSlidebar()}
         >Github Battle</NavBar>
         <Drawer
           className="my-drawer"
           contentStyle={{color: '#A6A6A6', textAlign: 'center', paddingTop: 42, }}
           enableDragHandle
           onOpenChange={this.onOpenChange}
-          open={this.state.sliderOpen}
+          open={this.props.slidebar.sliderOpen}
           sidebar={<Sidebar menus={menus} />}
           style={{minHeight: document.documentElement.clientHeight - 95, }}
 
@@ -75,7 +77,7 @@ class App extends React.Component {
             data-seed="logId"
             icon={<Aicon style={{ fontSize: '20px', }}
               type="home"
-            />}
+                  />}
             key="Home"
             onPress={() => {
               this.setState({
@@ -86,14 +88,14 @@ class App extends React.Component {
             selectedIcon={<Aicon style={{ fontSize: '20px', }}
               theme="twoTone"
               type="home"
-            />}
+                          />}
             title="首页"
           >
           </TabBar.Item>
           <TabBar.Item
             icon={<Aicon style={{ fontSize: '20px', }}
               type="compass"
-            />}
+                  />}
             key="Battle"
             onPress={() => {
               this.setState({
@@ -104,14 +106,14 @@ class App extends React.Component {
             selectedIcon={<Aicon style={{ fontSize: '20px', }}
               theme="twoTone"
               type="compass"
-            />}
+                          />}
             title="对比"
           >
           </TabBar.Item>
           <TabBar.Item
             icon={<Aicon style={{ fontSize: '20px', }}
               type="fire"
-            />}
+                  />}
             key="Fire"
             onPress={() => {
               this.setState({
@@ -122,14 +124,14 @@ class App extends React.Component {
             selectedIcon={<Aicon style={{ fontSize: '20px', }}
               theme="twoTone"
               type="fire"
-            />}
+                          />}
             title="热门"
           >
           </TabBar.Item>
           <TabBar.Item
             icon={<Aicon style={{ fontSize: '20px', }}
               type="question-circle"
-            />}
+                  />}
             key="Search"
             onPress={() => {
               this.setState({
@@ -140,7 +142,7 @@ class App extends React.Component {
             selectedIcon={<Aicon style={{ fontSize: '20px', }}
               theme="twoTone"
               type="question-circle"
-            />}
+                          />}
             title="搜索"
           >
           </TabBar.Item>
@@ -150,4 +152,19 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    slidebar: state.slidebar,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    toggleSlidebar: () => {
+      console.log('toggleSlidebar');
+      dispatch(toggleSlidebar());
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
