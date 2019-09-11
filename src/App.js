@@ -6,10 +6,11 @@ import thumbImg from './assets/image/gray.png';
 import Sidebar from './components/Sidebar';
 import {connect, } from 'react-redux';
 import {toggleSlidebar, } from './redux/actions/slidebar';
+import {switchFooterTab, } from './redux/actions/footer';
 
 class App extends React.Component {
   state = {
-    sliderOpen: false,
+    // sliderOpen: false,
     footerActive: 'home',
     footerHidden: false,
     // fullScreen: false,
@@ -79,12 +80,13 @@ class App extends React.Component {
               type="home"
                   />}
             key="Home"
-            onPress={() => {
-              this.setState({
-                footerActive: 'home',
-              });
-            }}
-            selected={this.state.footerActive === 'home'}
+            onPress={() => this.props.switchFooterTab('home')}
+            // {
+            //   this.setState({
+            //     footerActive: 'home',
+            //   });
+            // }}
+            selected={this.props.footer.footerActive === 'home'}
             selectedIcon={<Aicon style={{ fontSize: '20px', }}
               theme="twoTone"
               type="home"
@@ -97,12 +99,13 @@ class App extends React.Component {
               type="compass"
                   />}
             key="Battle"
-            onPress={() => {
-              this.setState({
-                footerActive: 'battle',
-              });
-            }}
-            selected={this.state.footerActive === 'battle'}
+            onPress={() => this.props.switchFooterTab('battle')}
+            //  {
+            //   this.setState({
+            //     footerActive: 'battle',
+            //   });
+            // }}
+            selected={this.props.footer.footerActive === 'battle'}
             selectedIcon={<Aicon style={{ fontSize: '20px', }}
               theme="twoTone"
               type="compass"
@@ -115,12 +118,13 @@ class App extends React.Component {
               type="fire"
                   />}
             key="Fire"
-            onPress={() => {
-              this.setState({
-                footerActive: 'fire',
-              });
-            }}
-            selected={this.state.footerActive === 'fire'}
+            onPress={() => this.props.switchFooterTab('fire')}
+            // {
+            //   this.setState({
+            //     footerActive: 'fire',
+            //   });
+            // }}
+            selected={this.props.footer.footerActive === 'fire'}
             selectedIcon={<Aicon style={{ fontSize: '20px', }}
               theme="twoTone"
               type="fire"
@@ -133,12 +137,13 @@ class App extends React.Component {
               type="question-circle"
                   />}
             key="Search"
-            onPress={() => {
-              this.setState({
-                footerActive: 'search',
-              });
-            }}
-            selected={this.state.footerActive === 'search'}
+            onPress={() => this.props.switchFooterTab('search')}
+            // {
+            //   this.setState({
+            //     footerActive: 'search',
+            //   });
+            // }}
+            selected={this.props.footer.footerActive === 'search'}
             selectedIcon={<Aicon style={{ fontSize: '20px', }}
               theme="twoTone"
               type="question-circle"
@@ -155,6 +160,7 @@ class App extends React.Component {
 const mapStateToProps = (state) => {
   return {
     slidebar: state.slidebar,
+    footer: state.footer,
   };
 };
 
@@ -162,8 +168,13 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     toggleSlidebar: () => {
-      console.log('触发后进入分发器dispatch, 0000');
+      console.log('toggleSlidebar 触发后进入分发器dispatch, 0000');
       dispatch(toggleSlidebar());
+    },
+
+    switchFooterTab: (name) => {
+      console.log('switchFooterTab 触发后进入分发器 dispatch, 0000');
+      dispatch(switchFooterTab(name));
     },
   };
 };

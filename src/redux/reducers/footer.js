@@ -1,19 +1,23 @@
-// redux 的 reducer, 操作侧边栏
-
-import {TOGGLE_SIDBAR, } from '../actions/slidebar';
+// redux的reducer,操作底部栏
+import {SWITCH_FOOTTAB, TOGGLE_FOOTTAB, } from '../actions/footer';
 
 // 初始化状态
 const initState = {
-  sliderOpen: false,
+  footerActive: 'home',
+  footerHidden: false,
 };
 
 // reducer是一个计划函数，接收旧的 state 和 action，生成新的 state
 export default function reducer(state = initState, action) {
   console.log('最后执行计划函数, 2222', action.type);
   switch (action.type) {
-  case TOGGLE_SIDBAR:
+  case SWITCH_FOOTTAB:
     return {
-      sliderOpen: !state.sliderOpen,
+      footerActive: action.payload,
+    };
+  case TOGGLE_FOOTTAB:
+    return {
+      footerHidden: !state.footerHidden,
     };
   default:
     return state;
