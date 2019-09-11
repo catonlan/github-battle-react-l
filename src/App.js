@@ -1,8 +1,9 @@
 import React from 'react';
 import { Icon as Aicon, } from 'antd';
-import {Drawer, List, NavBar, TabBar, Icon, } from 'antd-mobile';
+import {Drawer, NavBar, TabBar, Icon, } from 'antd-mobile';
 import './App.less';
 import thumbImg from './assets/image/gray.png';
+import Sidebar from './Sidebar';
 
 class App extends React.Component {
   state = {
@@ -36,13 +37,13 @@ class App extends React.Component {
 
     ];
 
-    const sidebar = (<List>
-      {menus.map((menu, index) => {
-        return (<List.Item key={index}
-          thumb={menu.thumb}
-                > {menu.title} </List.Item>);
-      })}
-    </List>);
+    // const sidebar = (<List>
+    //   {menus.map((menu, index) => {
+    //     return (<List.Item key={index}
+    //       thumb={menu.thumb}
+    //             > {menu.title} </List.Item>);
+    //   })}
+    // </List>);
 
     return (
       <div className="App">
@@ -55,7 +56,7 @@ class App extends React.Component {
           enableDragHandle
           onOpenChange={this.onOpenChange}
           open={this.state.open}
-          sidebar={sidebar}
+          sidebar={<Sidebar menus={menus} />}
           style={{minHeight: document.documentElement.clientHeight - 95, }}
 
         >
