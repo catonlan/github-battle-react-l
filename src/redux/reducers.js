@@ -5,6 +5,7 @@ import {connectRouter, } from 'connected-react-router';
 import slidebar from './reducers/slidebar';
 import footer from './reducers/footer';
 import user from './reducers/user';
+import battle from './reducers/battle';
 
 
 export default (history) => combineReducers({
@@ -12,4 +13,5 @@ export default (history) => combineReducers({
   slidebar,
   footer,
   user,
+  battle,
 });

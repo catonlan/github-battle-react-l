@@ -1,6 +1,6 @@
 // redux的action,操作battle信息
-import { push, } from 'connected-react-router';
-import {getUserByName, } from '../../api';
+// import { push, } from 'connected-react-router';
+import {getUserByName, } from '../../api/index';
 
 const CHANGE_PLAYERA = 'battle/PLAYERA';
 const CHANGE_PLAYERB = 'battle/PLAYERB';
@@ -44,4 +44,5 @@ export {
   CHANGE_PLAYERB,
   changePlayerA,
   changePlayerB,
+  changePlayer,
 };

@@ -16,3 +16,4 @@ const getUserByName = function (username) {
 export default {
   getUserByName,
 };
+
