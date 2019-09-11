@@ -11,9 +11,9 @@ class Home extends React.Component {
       <WhiteSpace />
       <div>
         <InputItem clear
+          defaultValue={this.props.user.email}
           onChange={this.onChange}
           placeholder="请输入你的邮箱"
-          value={this.props.user.email}
         >
           邮箱
         </InputItem>

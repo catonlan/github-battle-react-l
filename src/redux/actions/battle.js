@@ -1,6 +1,6 @@
 // redux的action,操作battle信息
 // import { push, } from 'connected-react-router';
-import {getUserByName, } from '../../api/index';
+import api from '../../api';
 
 const CHANGE_PLAYERA = 'battle/PLAYERA';
 const CHANGE_PLAYERB = 'battle/PLAYERB';
@@ -13,7 +13,7 @@ const changePlayer = function (userName = '', type = '') {
   };
 
   return (dispatch) => {
-    getUserByName(userName).then((res) => {
+    api.getUserByName(userName).then((res) => {
       data.info = res;
       data.status = true;
       dispatch({

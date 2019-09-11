@@ -18,7 +18,7 @@ const initState = {
 
 // reducer是一个计划函数，接收旧的 state 和 action，生成新的 state
 export default function reducer(state = initState, action) {
-  const avatar = (action.payload.status && typeof (action.payload.info.avatar_url) !== 'undefined') ? action.payload.info.avatar_url : 'http://www.gravatar.com/avatar';
+  const avatar = 'http://www.gravatar.com/avatar';
 
   switch (action.type) {
   case CHANGE_PLAYERA:
