@@ -4,12 +4,13 @@ import Qs from 'qs';
 import myFun from '../assets/js/myFun';
 
 // 创建axios实例,用于请求接口
-const apiXhr = axios.create({
+// xhr,即为XMLHttpRequest请求对象
+const Xhr = axios.create({
   timeout: 50000,
 });
 
 // request拦截器
-apiXhr.interceptors.request.use(
+Xhr.interceptors.request.use(
   (config) => {
     config.headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 
@@ -42,7 +43,7 @@ apiXhr.interceptors.request.use(
   (error) => {
     Toast.fail('请求错误!', 1);
     if (process.env.NODE_ENV === 'development') {
-      console.log('apiXhr request error', error);
+      console.log('Xhr request error', error);
     }
 
     return Promise.reject(error);
@@ -50,38 +51,40 @@ apiXhr.interceptors.request.use(
 );
 
 // respone拦截器
-apiXhr.interceptors.response.use(
+Xhr.interceptors.response.use(
   (response) => {
     // 通过状态码来识别服务器提示信息
     if (process.env.NODE_ENV === 'development') {
-      console.log('apiXhr response.status:', response.status);
+      console.log('Xhr response:', response);
     }
 
-    switch (response.status) {
-    case 200: // 正常
-      if (!response.data.status) {
-        Toast.fail(response.data.msg, 1);
-      }
-      break;
-    case 404:
-      Toast.info('404错误!', 1);
-      break;
-    case 500:
-      Toast.fail('接口错误!', 1);
-      break;
-    case 504:
-      Toast.offline('网络超时!', 1);
-      break;
-    default:
-      Toast.offline('未知错误!', 1);
-      break;
-    }
+    return response;
 
-    return response.data.status ? response.data : false;
+    //     switch (response.status) {
+    //     case 200: // 正常
+    //       if (!response.data.status) {
+    //         Toast.fail(response.data.msg, 1);
+    //       }
+    //       break;
+    //     case 404:
+    //       Toast.info('404错误!', 1);
+    //       break;
+    //     case 500:
+    //       Toast.fail('接口错误!', 1);
+    //       break;
+    //     case 504:
+    //       Toast.offline('网络超时!', 1);
+    //       break;
+    //     default:
+    //       Toast.offline('未知错误!', 1);
+    //       break;
+    //     }
+
+    //     return response.data.status ? response.data : false;
   },
   (error) => {
     if (process.env.NODE_ENV === 'development') {
-      console.log('apiXhr response error', error);
+      console.log('Xhr response error', error);
     }
 
     // 非状态码错误  在此通过正则处理
@@ -101,4 +104,5 @@ apiXhr.interceptors.response.use(
   }
 );
 
-export default apiXhr;
+export default Xhr;
+
