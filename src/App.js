@@ -7,7 +7,7 @@ import thumbImg from './assets/image/gray.png';
 class App extends React.Component {
   state = {
     open: false,
-    selectedTab: 'redTab',
+    selectedTab: 'home',
     hidden: false,
     fullScreen: false,
   }
@@ -48,7 +48,7 @@ class App extends React.Component {
       <div className="App">
         <NavBar icon={<Icon type="ellipsis" />}
           onLeftClick={this.onOpenChange}
-        >Battle</NavBar>
+        >Github Battle</NavBar>
         <Drawer
           className="my-drawer"
           contentStyle={{color: '#A6A6A6', textAlign: 'center', paddingTop: 42, }}
@@ -62,6 +62,8 @@ class App extends React.Component {
           主体内容在这里。Github battle
         </Drawer>
 
+
+        {/*  底部栏 */}
         <TabBar
           barTintColor="white"
           hidden={this.state.hidden}
@@ -72,70 +74,72 @@ class App extends React.Component {
             data-seed="logId"
             icon={<Aicon style={{ fontSize: '20px', }}
               type="home"
-            />}
-            key="Life"
+                  />}
+            key="Home"
             onPress={() => {
               this.setState({
-                selectedTab: 'blueTab',
+                selectedTab: 'home',
               });
             }}
-            selected={this.state.selectedTab === 'blueTab'}
+            selected={this.state.selectedTab === 'home'}
             selectedIcon={<Aicon style={{ fontSize: '20px', }}
               theme="twoTone"
-              type="home" />}
+              type="home"
+                          />}
             title="首页"
           >
           </TabBar.Item>
           <TabBar.Item
             icon={<Aicon style={{ fontSize: '20px', }}
               type="compass"
-            />}
-            key="Koubei"
+                  />}
+            key="Battle"
             onPress={() => {
               this.setState({
-                selectedTab: 'redTab',
+                selectedTab: 'battle',
               });
             }}
-            selected={this.state.selectedTab === 'redTab'}
+            selected={this.state.selectedTab === 'battle'}
             selectedIcon={<Aicon style={{ fontSize: '20px', }}
               theme="twoTone"
               type="compass"
-            />}
+                          />}
             title="对比"
           >
           </TabBar.Item>
           <TabBar.Item
             icon={<Aicon style={{ fontSize: '20px', }}
               type="fire"
-            />}
-            key="Friend"
+                  />}
+            key="Fire"
             onPress={() => {
               this.setState({
-                selectedTab: 'greenTab',
+                selectedTab: 'fire',
               });
             }}
-            selected={this.state.selectedTab === 'greenTab'}
+            selected={this.state.selectedTab === 'fire'}
             selectedIcon={<Aicon style={{ fontSize: '20px', }}
               theme="twoTone"
-              type="fire" />}
+              type="fire"
+                          />}
             title="热门"
           >
           </TabBar.Item>
           <TabBar.Item
             icon={<Aicon style={{ fontSize: '20px', }}
               type="question-circle"
-            />}
-            key="my"
+                  />}
+            key="Search"
             onPress={() => {
               this.setState({
-                selectedTab: 'yellowTab',
+                selectedTab: 'search',
               });
             }}
-            selected={this.state.selectedTab === 'yellowTab'}
+            selected={this.state.selectedTab === 'search'}
             selectedIcon={<Aicon style={{ fontSize: '20px', }}
               theme="twoTone"
               type="question-circle"
-            />}
+                          />}
             title="搜索"
           >
           </TabBar.Item>
