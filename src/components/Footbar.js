@@ -24,38 +24,38 @@ class Footbar extends React.Component {
           data-seed="logId"
           icon={<Aicon style={{ fontSize: '20px', }}
             type="home"
-                />}
+          />}
           key="Home"
           onPress={() => this.props.switchFooterTab('home')}
           selected={this.props.footer.footerActive === 'home'}
           selectedIcon={<Aicon style={{ fontSize: '20px', }}
             theme="twoTone"
             type="home"
-                        />}
+          />}
           title="首页"
         >
         </TabBar.Item>
         <TabBar.Item
           icon={<Aicon style={{ fontSize: '20px', }}
             type="compass"
-          />}
+                />}
           key="Battle"
           onPress={() => this.props.switchFooterTab('battle')}
           selected={this.props.footer.footerActive === 'battle'}
           selectedIcon={<Aicon style={{ fontSize: '20px', }}
             theme="twoTone"
             type="compass"
-          />}
+                        />}
           title="对比"
         >
         </TabBar.Item>
         <TabBar.Item
           icon={<Aicon style={{ fontSize: '20px', }}
             type="fire"
-                />}
-          key="Fire"
-          onPress={() => this.props.switchFooterTab('fire')}
-          selected={this.props.footer.footerActive === 'fire'}
+          />}
+          key="Popular"
+          onPress={() => this.props.switchFooterTab('Popular')}
+          selected={this.props.footer.footerActive === 'Popular'}
           selectedIcon={<Aicon style={{ fontSize: '20px', }}
             theme="twoTone"
             type="fire" />}
@@ -65,14 +65,14 @@ class Footbar extends React.Component {
         <TabBar.Item
           icon={<Aicon style={{ fontSize: '20px', }}
             type="question-circle"
-                />}
+          />}
           key="Search"
           onPress={() => this.props.switchFooterTab('search')}
           selected={this.props.footer.footerActive === 'search'}
           selectedIcon={<Aicon style={{ fontSize: '20px', }}
             theme="twoTone"
             type="question-circle"
-                        />}
+          />}
           title="搜索"
         >
         </TabBar.Item>
