@@ -1,8 +1,9 @@
 // 修改axios全局配置
+// 二次封装 axios
 import axios from 'axios';
 
 // axios 全局配置
-axios.defaults.timeout = 5000; // 超时时间,毫秒
+axios.defaults.timeout = 10000; // 超时时间,毫秒
 axios.defaults.withCredentials = false; // 是否携带cookie
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;

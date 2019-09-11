@@ -1,7 +1,7 @@
 import React from 'react';
 import {InputItem, WhiteSpace, } from 'antd-mobile';
-import {connect,} from 'react-redux';
-import {changeEmail,} from '../redux/actions/user';
+import {connect, } from 'react-redux';
+import {changeEmail, } from '../redux/actions/user';
 
 class Home extends React.Component {
   render() {
@@ -17,6 +17,10 @@ class Home extends React.Component {
         >
           邮箱
         </InputItem>
+        <WhiteSpace />
+        <p>
+          当前版本：<span>{process.env.REACT_APP_VERSION}</span>
+        </p>
       </div>
     </div>);
   }
