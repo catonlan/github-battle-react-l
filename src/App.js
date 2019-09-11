@@ -23,7 +23,7 @@ class App extends React.Component {
           rightContent={
             <Avatar className="avatar"
               icon="user"
-              src="http://www.gravatar.com/avatar"
+              src={this.props.user.avatar}
             />
 
           }
@@ -58,7 +58,7 @@ class App extends React.Component {
               path="/search"
             />
 
-            <Route render={function () {
+            <Route render={() => {
               return <p>Not Found</p>;
             }}
             />
@@ -78,7 +78,7 @@ class App extends React.Component {
 const mapStateToProps = (state) => {
   return {
     slidebar: state.slidebar,
-
+    user: state.user,
   };
 };
 

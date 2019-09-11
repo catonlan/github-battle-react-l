@@ -1,5 +1,7 @@
 import React from 'react';
 import {InputItem, WhiteSpace, } from 'antd-mobile';
+import {connect,} from 'react-redux';
+import {changeEmail,} from '../redux/actions/user';
 
 class Home extends React.Component {
   render() {
@@ -9,7 +11,9 @@ class Home extends React.Component {
       <WhiteSpace />
       <div>
         <InputItem clear
+          onChange={this.onChange}
           placeholder="请输入你的邮箱"
+          value={this.props.user.email}
         >
           邮箱
         </InputItem>
@@ -18,4 +22,21 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+// export default Home;
+// 将state映射到props
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
+
+// 绑定分发器
+const mapDispatchToProps = (dispatch) => {
+  return {
+    changeEmail: (v) => {
+      dispatch(changeEmail(v));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
