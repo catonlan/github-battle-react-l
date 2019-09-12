@@ -1,13 +1,16 @@
 import React from 'react';
-import {InputItem, WhiteSpace, Button, } from 'antd-mobile';
+import {InputItem, WhiteSpace, Button, Toast, } from 'antd-mobile';
 import {Avatar, } from 'antd';
 import {connect, } from 'react-redux';
 import {changePlayerA, changePlayerB, } from '../redux/actions/battle';
 import {push, } from 'connected-react-router';
-import {Toast, } from 'antd-mobile';
-
+import animate from '@jam3/gsap-promise';
 
 class Battle extends React.Component {
+  componentDidMount() {
+    animate.from(this.topHeader, 0.2, { y: -200, delay: 0.1, });
+  }
+
       onChangeA = (value) => {
         value = value.replace(/\s/g);
         return this.props.changeA(value);
@@ -31,7 +34,7 @@ class Battle extends React.Component {
 
       render() {
         return (<div>
-          <h1>对比战斗</h1>
+          <h1 ref={(c) => {this.topHeader = c;}}>对比战斗</h1>
           <InputItem
             clear
             defaultValue={this.props.battle.player_a_name}

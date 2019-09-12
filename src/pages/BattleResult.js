@@ -1,10 +1,11 @@
 import React from 'react';
 import {connect, } from 'react-redux';
 
-import {Toast, WhiteSpace,} from 'antd-mobile';
+import {Toast, WhiteSpace, } from 'antd-mobile';
 import {push, } from 'connected-react-router';
 import {compareClear, compareResult, } from '../redux/actions/battle';
 import Player from '../components/Player';
+// import animate from '@jam3/gsap-promise'
 
 
 class BattleResult extends React.Component {
