@@ -7,6 +7,18 @@ import {push, } from 'connected-react-router';
 import animate from '@jam3/gsap-promise';
 
 class Battle extends React.Component {
+  constructor(props) {
+    super(props);
+    let playerA = this.props.user.email.split('@')[0];
+
+    if (this.props.battle.player_a_name !== '') {
+      playerA = this.props.battle.player_a_name;
+    }
+
+    this.state = {
+      playerA: playerA,
+    };
+  }
   componentDidMount() {
     animate.from(this.topHeader, 0.2, { y: -200, delay: 0.1, });
   }
@@ -36,8 +48,10 @@ class Battle extends React.Component {
         return (<div>
           <h1 ref={(c) => {this.topHeader = c;}}>对比战斗</h1>
           <InputItem
+            //  {/** autoFocus设置自动获得焦点*/}
+            autoFocus
             clear
-            defaultValue={this.props.battle.player_a_name}
+            defaultValue={this.state.playerA}
             onBlur={this.onChangeA}
             placeholder="请输入选手A"
             // value={''}
@@ -73,6 +87,7 @@ class Battle extends React.Component {
 // 将state映射到props
 const mapStateToProps = (state) => {
   return {
+    user: state.user,
     battle: state.battle,
   };
 };
