@@ -59,7 +59,7 @@ const compareResult = function (userNames = [], callback = null) {
   return (dispatch) => {
     api.battleCompare(userNames).then((players) => {
       dispatch({
-        type: COMPARE_CLEAR,
+        type: COMPARE_RESULT,
         result: true,
         players: players,
       });
@@ -70,7 +70,7 @@ const compareResult = function (userNames = [], callback = null) {
     }).catch((err) => {
       Toast.fail(err, 1);
       dispatch({
-        type: COMPARE_CLEAR,
+        type: COMPARE_RESULT,
         result: false,
         players: [],
       });
