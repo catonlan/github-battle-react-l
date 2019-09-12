@@ -1,5 +1,5 @@
 // redux的reducer,操作battle信息
-import {CHANGE_PLAYERA, CHANGE_PLAYERB, } from '../actions/battle';
+import {CHANGE_PLAYERA, CHANGE_PLAYERB, COMPARE_CLEAR, COMPARE_RESULT, } from '../actions/battle';
 import myFun from '../../assets/js/myFun';
 import { merge, } from 'rxjs';
 
@@ -16,7 +16,13 @@ const initState = {
   player_b_status: false,
   player_b_info: {},
   player_b_avatar: '',
+
+  // 对比结果，输赢的选手信息
+  player_winner: {},
+  player_loser: {},
+  battle_result: false,
 };
+
 
 // reducer是一个计划函数，接收旧的 state 和 action，生成新的 state
 export default function reducer(state = initState, action) {
@@ -47,6 +53,19 @@ export default function reducer(state = initState, action) {
       player_b_info: action.payload.info,
       player_b_avatar: avatar,
     });
+  case COMPARE_CLEAR:
+    return merge({}, state, {
+      player_winner: {},
+      player_loser: {},
+      battle_result: false,
+    });
+  case COMPARE_RESULT:
+    return merge({}, state, {
+      player_winner: action.data[0],
+      player_loser: action.data[1],
+      battle_result: true,
+    });
+
   default:
 
     if (action.entities && action.entities.comments) {
