@@ -31,7 +31,7 @@ class App extends React.Component {
         >Github Battle</NavBar>
         <Drawer
           className="my-drawer"
-          contentStyle={{color: '#A6A6A6', textAlign: 'center', paddingTop: 42, }}
+          contentStyle={{color: '#A6A6A6', textAlign: 'center', }}
           enableDragHandle
           onOpenChange={() => this.props.toggleSlidebar()}
           open={this.props.slidebar.sliderOpen}
