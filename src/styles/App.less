@@ -30,3 +30,43 @@
         border-radius: 18px
     }
 }
+
+/* 注释,以下为battle相关样式 */
+.row {
+    & .header {}
+
+    & .score {
+        text-align: center;
+        color: darkgreen;
+    }
+
+    & .column {
+
+        & .avatar {
+            width: 150px;
+            border-radius: 50%;
+        }
+
+        & .username {
+            color: cadetblue;
+        }
+    }
+
+    & .space-list-items {
+        margin-bottom: 7px;
+        text-align: left;
+        font-size: 18px;
+        line-height: 24px;
+
+        & li {
+            list-style-type: none;
+
+            & span.itemName {
+                margin-right: 20px;
+                width: 80px;
+                display: inline-block;
+                color: slategray;
+            }
+        }
+    }
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect, } from 'react-redux';
 
-import {Toast, } from 'antd-mobile';
+import {Toast, WhiteSpace,} from 'antd-mobile';
 import {push, } from 'connected-react-router';
 import {compareClear, compareResult, } from '../redux/actions/battle';
 import Player from '../components/Player';
@@ -75,6 +75,7 @@ class BattleResult extends React.Component {
             profile={player_winner.profile}
             score={player_winner.score}
           />
+          <WhiteSpace />
           <Player label="战败"
             profile={player_loser.profile}
             score={player_loser.score}
