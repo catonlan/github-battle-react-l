@@ -20,7 +20,7 @@ const initState = {
   // 对比结果，输赢的选手信息
   player_winner: {},
   player_loser: {},
-  battle_result: false,
+  battle_result: 0, // 0等待结果，-1失败，1成功
 };
 
 
@@ -63,7 +63,7 @@ export default function reducer(state = initState, action) {
     return merge({}, state, {
       player_winner: action.result ? action.players[0] : {},
       player_loser: action.result ? action.players[1] : {},
-      battle_result: action.result,
+      battle_result: action.result ? 1 : -1,
     });
 
   default:

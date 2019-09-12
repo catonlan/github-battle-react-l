@@ -4,6 +4,7 @@ import {connect, } from 'react-redux';
 import {Toast, } from 'antd-mobile';
 import {push, } from 'connected-react-router';
 import {compareClear, compareResult, } from '../redux/actions/battle';
+import Player from '../components/Player';
 
 
 class BattleResult extends React.Component {
@@ -58,10 +59,26 @@ class BattleResult extends React.Component {
       return;
     }
 
+
     render() {
+      const { player_winner, player_loser, } = this.props.battle;
+
+      // 条件渲染
+      if (this.props.battle.battle_result === 0) {
+        return (<div></div>);
+      } else if (this.props.battle.battle_result === -1) {
+        return (<div>PK失败</div>);
+      }
       return (
-        <div>
-          {this.props.battle.battle_result ? 'y' : 'n'}
+        <div className="row">
+          <Player label="胜出"
+            profile={player_winner.profile}
+            score={player_winner.score}
+          />
+          <Player label="战败"
+            profile={player_loser.profile}
+            score={player_loser.score}
+          />
         </div>
       );
     }
