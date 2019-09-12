@@ -70,3 +70,27 @@
         }
     }
 }
+
+.languages {
+    display: -ms-flexbox;
+    display: block;
+    -ms-flex-pack: center;
+    justify-content: center;
+
+    & li {
+        margin: 10px;
+        font-weight: 700;
+        font-size: 18px;
+        cursor: pointer;
+        list-style-type: none;
+        width: 70px;
+        clear: none;
+        display: inline-block;
+        background: aliceblue;
+
+        &.selected {
+            color: firebrick
+        }
+    }
+
+}
