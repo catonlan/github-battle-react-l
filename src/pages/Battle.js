@@ -25,11 +25,17 @@ class Battle extends React.Component {
 
       onChangeA = (value) => {
         value = value.replace(/\s/g);
-        return this.props.changeA(value);
+        if (value !== '') {
+          this.props.changeA(value);
+        }
+        return;
       }
       onChangeB = (value) => {
         value = value.replace(/\s/g);
-        return this.props.changeB(value);
+        if (value !== '') {
+          this.props.changeB(value);
+        }
+        return;
       }
 
       willCompare = () => {

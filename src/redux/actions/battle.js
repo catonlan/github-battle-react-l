@@ -18,7 +18,7 @@ const changePlayer = function (userName = '', type = '') {
     status: false,
   };
 
-  return (dispatch) => {
+  return (dispatch, getState) => {
     api.getUserByName(userName).then((res) => {
       data.info = res;
       data.status = true;
@@ -31,6 +31,10 @@ const changePlayer = function (userName = '', type = '') {
         type: type,
         data: data,
       });
+      // 只在battle当前页时提示错误
+      if (getState().router.location.pathname === '/battle') {
+        Toast.fail('获取选手失败！', 2);
+      }
     });
   };
 };
