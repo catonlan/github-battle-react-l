@@ -8,6 +8,9 @@ const CHANGE_LANGUAGE = 'popular/LANGUAGE';
 // 获取语言的仓库列表
 const changeLanguage = function (lang = '', callback = null) {
   return (dispatch) => {
+    if (lang === '') {
+      lang = 'All';
+    }
     api.getPopularRepos(lang).then((res) => {
       dispatch({
         type: CHANGE_LANGUAGE,

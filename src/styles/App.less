@@ -19,6 +19,16 @@
     left: -10px;
 }
 
+/*从无序列表项中删除缩进*/
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
 .avatar {
     color: #f56a00;
     font-size: 30px;
@@ -59,7 +69,7 @@
         line-height: 24px;
 
         & li {
-            list-style-type: none;
+            
 
             & span.itemName {
                 margin-right: 20px;
@@ -82,7 +92,7 @@
         font-weight: 700;
         font-size: 18px;
         cursor: pointer;
-        list-style-type: none;
+        // list-style-type: none;
         width: 70px;
         clear: none;
         display: inline-block;
@@ -92,5 +102,43 @@
             color: firebrick
         }
     }
+
+    }
+
+    .popular-list {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+        width: 100%;
+
+        & .popular-item {
+            text-align: center;
+            width: 50%;
+            overflow: hidden;
+            clear: none;
+            display: inline-block;
+
+            & .popular-rank {
+                font-size: 20px;
+                margin: 10px;
+                color: firebrick
+            }
+
+            & .space-list-items {
+                margin-bottom: 7px;
+
+                & li {
+                    line-height: 22px;
+                }
+
+                & .avatar {
+                    width: 140px;
+                    border-radius: 50%;
+                }
+            }
+        }
 
 }
