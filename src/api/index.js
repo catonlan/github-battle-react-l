@@ -123,7 +123,7 @@ const getUserData = function (username) {
   // 它返回的结果是一个数组，使用 axios.spread 可将数组 [res1,res2] 展开为 res1, res2
   return axios.all([getProfileByName(username), getUserRepos(username), ])
     .then(axios.spread((profile, repos) => {
-      console.log('getUserData:', profile, repos);
+      // console.log('getUserData:', profile, repos);
       return {
         profile: profile,
         score: calculateScore(profile, repos),

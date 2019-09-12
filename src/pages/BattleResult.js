@@ -1,8 +1,9 @@
 import React from 'react';
 import {connect, } from 'react-redux';
-import api from '../api';
+
 import {Toast, } from 'antd-mobile';
 import {push, } from 'connected-react-router';
+import {compareClear, compareResult, } from '../redux/actions/battle';
 
 
 class BattleResult extends React.Component {
@@ -23,20 +24,24 @@ class BattleResult extends React.Component {
 
   // 执行比较
     doCompare = () => {
-      if (!this.props.battle.player_a_status) {
-        Toast.fail('选手A不存在！', 2);
+      if (!this.props.battle.player_a_status || !this.props.battle.player_b_status) {
+        Toast.fail('需要有2个选手才能pk！', 2);
         this.props.inputCompare();
         return;
-      } else if (!this.props.battle.player_b_status) {
-        Toast.fail('选手B不存在！', 2);
-        this.props.inputCompare();
-        return;
+        //   } else if (!this.props.battle.player_b_status) {
+        //     Toast.fail('选手B不存在！', 2);
+        //     this.props.inputCompare();
+        //     return;
       }
 
       Toast.loading('loading...', 0);
-      const res = api.battleCompare([this.props.battle.player_a_name, this.props.battle.player_b_name, ]);
+      this.props.clear();
+      this.props.doCompare([this.props.battle.player_a_name, this.props.battle.player_b_name, ], () => {
+        // 有结果后关闭loading
+        Toast.hide();
+      });
 
-      console.log('res:', res);
+      //   console.log('res:', res);
       return;
     }
 
@@ -65,6 +70,14 @@ const mapDispatchToProps = (dispatch) => {
       setTimeout(() => {
         dispatch(push('/battle'));
       }, 2000);
+    },
+
+    clear: () => {
+      dispatch(compareClear());
+    },
+
+    doCompare: (userNames, callback) => {
+      dispatch(compareResult(userNames, callback));
     },
   };
 };

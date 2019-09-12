@@ -61,9 +61,9 @@ export default function reducer(state = initState, action) {
     });
   case COMPARE_RESULT:
     return merge({}, state, {
-      player_winner: action.data[0],
-      player_loser: action.data[1],
-      battle_result: true,
+      player_winner: action.result ? action.players[0] : {},
+      player_loser: action.result ? action.players[1] : {},
+      battle_result: action.result,
     });
 
   default:

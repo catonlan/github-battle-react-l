@@ -3,6 +3,7 @@
 import api from '../../api';
 import {Toast, } from 'antd-mobile';
 import { push, } from 'connected-react-router';
+import myFun from '../../assets/js/myFun';
 
 const CHANGE_PLAYERA = 'battle/PLAYERA';
 const CHANGE_PLAYERB = 'battle/PLAYERB';
@@ -54,15 +55,25 @@ const compareClear = function () {
 };
 
 // 获取对比结果
-const compareResult = function (userNames = []) {
+const compareResult = function (userNames = [], callback = null) {
   return (dispatch) => {
     api.battleCompare(userNames).then((players) => {
       dispatch({
         type: COMPARE_CLEAR,
-        data: players,
+        result: true,
+        players: players,
       });
+      // 执行回调函数
+      if (myFun.isFunction(callback)) {
+        callback();
+      }
     }).catch((err) => {
       Toast.fail(err, 1);
+      dispatch({
+        type: COMPARE_CLEAR,
+        result: false,
+        players: [],
+      });
       dispatch(push('/battle'));
     });
   };
