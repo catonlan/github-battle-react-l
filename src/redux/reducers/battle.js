@@ -30,7 +30,7 @@ export default function reducer(state = initState, action) {
     }
   }
 
-  console.log('battle reducer:', action, avatar);
+  // console.log('battle reducer:', action, avatar);
 
   switch (action.type) {
   case CHANGE_PLAYERA:

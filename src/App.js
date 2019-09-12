@@ -11,6 +11,7 @@ import Home from './pages/Home';
 import Battle from './pages/Battle';
 import Popular from './pages/Popular';
 import Search from './pages/Search';
+import BattleResult from './pages/BattleResult';
 
 
 class App extends React.Component {
@@ -50,6 +51,10 @@ class App extends React.Component {
             <Route component={Battle}
               exact
               path="/battle"
+            />
+            <Route component={BattleResult}
+              exact
+              path="/battle/result"
             />
             <Route component={Popular}
               path="/popular"
