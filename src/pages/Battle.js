@@ -5,7 +5,7 @@ import {connect, } from 'react-redux';
 import {changePlayerA, changePlayerB, } from '../redux/actions/battle';
 import {push, } from 'connected-react-router';
 import {Toast, } from 'antd-mobile';
-import { tsParenthesizedType, } from '@babel/types';
+
 
 class Battle extends React.Component {
       onChangeA = (value) => {
@@ -20,7 +20,7 @@ class Battle extends React.Component {
       willCompare = () => {
         setTimeout(() => {
           if (!this.props.battle.player_a_status) {
-            return tsParenthesizedType.fail('选手A不存在！', 2);
+            return Toast.fail('选手A不存在！', 2);
           } else if (!this.props.battle.player_b_status) {
             return Toast.fail('选手B不存在！', 2);
           }
