@@ -46,15 +46,8 @@ class Popular extends React.Component {
 }
 
 
-// 将state映射到 props
-const mapStateToProps = (state) => {
-  return {
-    popular: state.popular,
-  };
-};
-
 // 绑定分发器
-const mapDispatchProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     clear: () => {
       dispatch(clearRepository());
@@ -66,5 +59,12 @@ const mapDispatchProps = (dispatch) => {
   };
 };
 
+// 将state映射到 props
+const mapStateToProps = (state) => {
+  return {
+    popular: state.popular,
+  };
+};
 
-export default connect(mapDispatchProps, mapStateToProps)(Popular);
+// 必须按照connect(mapStateToProps, mapDispatchToProps, mergeProps, _ref2)原型传参顺序
+export default connect(mapStateToProps, mapDispatchToProps)(Popular);
