@@ -18,12 +18,12 @@ const changePlayer = function (userName = '', type = '') {
       data.status = true;
       dispatch({
         type: type,
-        payload: data,
+        data: data,
       });
     }).catch(() => {
       dispatch({
         type: type,
-        payload: data,
+        data: data,
       });
     });
   };

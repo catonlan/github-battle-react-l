@@ -1,10 +1,17 @@
 import React from 'react';
-import {InputItem, WhiteSpace, Button,} from 'antd-mobile';
-import {Avatar,} from 'antd';
+import {InputItem, WhiteSpace, Button, } from 'antd-mobile';
+import {Avatar, } from 'antd';
+import {connect, } from 'react-redux';
+import {changePlayerA, changePlayerB, } from '../redux/actions/battle';
 
 class Battle extends React.Component {
-      onChange = () => {
-
+      onChangeA = (value) => {
+        value = value.replace(/\s/g);
+        return this.props.changeA(value);
+      }
+      onChangeB = (value) => {
+        value = value.replace(/\s/g);
+        return this.props.changeB(value);
       }
 
       render() {
@@ -12,25 +19,27 @@ class Battle extends React.Component {
           <h1>对比战斗</h1>
           <InputItem
             clear
-            onChange={this.onChange}
+            defaultValue={this.props.battle.player_a_name}
+            onBlur={this.onChangeA}
             placeholder="请输入选手A"
-            value={''}
+            // value={''}
           >
             <Avatar className="avatar"
               icon="user"
-              src=""
+              src={this.props.battle.player_a_avatar}
             />
           </InputItem>
           <WhiteSpace />
           <InputItem
             clear
-            onChange={this.onChange}
+            defaultValue={this.props.battle.player_b_name}
+            onBlur={this.onChangeB}
             placeholder="请输入选手B"
             value={''}
           >
             <Avatar className="avatar"
               icon="user"
-              src=""
+              src={this.props.battle.player_b_avatar}
             />
           </InputItem>
           <WhiteSpace />
@@ -42,4 +51,25 @@ class Battle extends React.Component {
       }
 }
 
-export default Battle;
+// 将state映射到props
+const mapStateToProps = (state) => {
+  return {
+    battle: state.battle,
+  };
+};
+
+// 绑定分发器
+const mapDispatchToProps = (dispatch) => {
+  return {
+    changeA: (v) => {
+      dispatch(changePlayerA(v));
+    },
+
+    changeB: (v) => {
+      dispatch(changePlayerB(v));
+    },
+  };
+};
+
+// export default Battle;
+export default connect(mapStateToProps, mapDispatchToProps)(Battle);

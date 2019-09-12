@@ -6,6 +6,9 @@ const getUserByName = function (username) {
   // 这里使用字符串模板变量
   const uri = `http://api.github.com/users/${username}`;
 
+  if (username === '') {
+    return Promise.reject('输入不能为空');
+  }
   return xhr({
     url: uri,
     method: 'get',
