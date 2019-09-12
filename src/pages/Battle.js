@@ -17,14 +17,16 @@ class Battle extends React.Component {
         return this.props.changeB(value);
       }
 
-      doCompare = () => {
-        if (!this.props.battle.player_a_status) {
-          return tsParenthesizedType.fail('选手A不存在！', 2);
-        } else if (!this.props.battle.player_b_status) {
-          return Toast.fail('选手B不存在！', 2);
-        }
+      willCompare = () => {
+        setTimeout(() => {
+          if (!this.props.battle.player_a_status) {
+            return tsParenthesizedType.fail('选手A不存在！', 2);
+          } else if (!this.props.battle.player_b_status) {
+            return Toast.fail('选手B不存在！', 2);
+          }
 
-        return this.props.doCompare();
+          return this.props.willCompare();
+        }, 250);
       }
 
       render() {
@@ -57,7 +59,7 @@ class Battle extends React.Component {
           </InputItem>
           <WhiteSpace />
           <Button inline
-            onClick={this.doCompare}
+            onClick={this.willCompare}
             style={{ marginRight: '4px', }}
             type="primary"
           >开始PK</Button>
@@ -82,7 +84,7 @@ const mapDispatchToProps = (dispatch) => {
     changeB: (v) => {
       dispatch(changePlayerB(v));
     },
-    doCompare: () => {
+    willCompare: () => {
       dispatch(push('/battle/result'));
     },
   };
