@@ -5,7 +5,8 @@ import merge from 'lodash/merge';
 // 初始化状态
 const initState = {
   // 仓库列表
-  repositories: [],
+  repositories: null,
+  selectedLang: 'All',
 };
 
 // reducer是一个计划函数，接收旧的 state 和 action，生成新的 state
@@ -13,7 +14,8 @@ export default function reducer(state = initState, action) {
   switch (action.type) {
   case CHANGE_LANGUAGE:
     return merge({}, state, {
-      repositories: action.data,
+      repositories: action.data.repos,
+      selectedLang: action.data.lang,
     });
   default:
     if (action.entities && action.entities.comments) {
