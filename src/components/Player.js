@@ -10,7 +10,7 @@ class Player extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="battleResult">
         <h1 className="header">{this.props.label}</h1>
         <h3 className="score">得分:{this.props.score}</h3>
         <Profile info={this.props.Profile} />
