@@ -207,6 +207,7 @@ module.exports = function (webpackEnv) {
       jsonpFunction: `webpackJsonp${appPackageJson.name}`,
     },
     optimization: {
+      // 开启最小化
       minimize: isEnvProduction,
       minimizer: [
         // This is only used in production mode
