@@ -274,12 +274,14 @@ module.exports = function (webpackEnv) {
       // Automatically split vendor and commons
       // https://twitter.com/wSokra/status/969633336732905474
       // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
+      // 拆分依赖包和业务代码
       splitChunks: {
         chunks: 'all',
         name: false,
       },
       // Keep the runtime chunk separated to enable long term caching
       // https://twitter.com/wSokra/status/969679223278505985
+      // 设置为 true 或 "multiple"，会为每个仅含有 runtime 的入口起点添加一个额外 chunk
       runtimeChunk: true,
     },
     resolve: {
@@ -555,6 +557,7 @@ module.exports = function (webpackEnv) {
                 minifyCSS: true,
                 minifyURLs: true,
               },
+              chunks: ['manifest', 'commons', 'bundle', 'plugin', ],
             }
             : undefined
         )
@@ -579,6 +582,7 @@ module.exports = function (webpackEnv) {
       // It is absolutely essential that NODE_ENV is set to production
       // during a production build.
       // Otherwise React will be compiled in the very slow development mode.
+      // DefinePlugin 允许创建一个在编译时可以配置的全局常量
       new webpack.DefinePlugin(env.stringified),
       // This is necessary to emit hot updates (currently CSS only):
       isEnvDevelopment && new webpack.HotModuleReplacementPlugin(),

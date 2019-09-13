@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect, } from 'react-redux';
-
+import resultImg from '../assets/image/battle_result.png';
 import {Toast, WhiteSpace, } from 'antd-mobile';
 import {push, } from 'connected-react-router';
 import {compareClear, compareResult, } from '../redux/actions/battle';
@@ -87,6 +87,9 @@ class BattleResult extends React.Component {
       }
       return (
         <div className="row">
+          <div className="resImg">
+            <img src={resultImg} />
+          </div>
           <Player label="胜出"
             profile={player_winner.profile}
             score={player_winner.score}
