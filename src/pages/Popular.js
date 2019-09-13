@@ -18,7 +18,7 @@ class Popular extends React.Component {
 
   componentDidMount() {
     animate.from(this.topHeader, 0.2, {y: -200, delay: 0.1, });
-    this.updateLanguage();
+    this.updateLanguage(this.props.popular.selectedLang);
   }
 
 
