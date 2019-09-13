@@ -67,11 +67,11 @@ class RepoGrid extends React.Component {
                   </LazyLoad>
                 </li>
 
-                <li>
+                <a>
                   <a href={repo.html_url}>
                     {repo.name}
                   </a>
-                </li>
+                </a>
                 <li>@{repo.owner.login}</li>
                 <li>{repo.stargazers_count} stars</li>
               </ul>
