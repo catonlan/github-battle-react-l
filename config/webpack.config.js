@@ -566,7 +566,7 @@ module.exports = function (webpackEnv) {
                 minifyCSS: true,
                 minifyURLs: true,
               },
-              chunks: ['manifest', 'commons', 'bundle', 'plugin', ],
+              // chunks: ['manifest', 'commons', 'bundle', 'plugin', ],
             }
             : undefined
         )
