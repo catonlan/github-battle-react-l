@@ -34,6 +34,8 @@ const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 const eslint = require('eslint');
 // PostCSS标准化,使用 PostCSS规范，从browserslist中使用 normalize.css 所需的部分
 const postcssNormalize = require('postcss-normalize');
+// gzip 压缩插件
+const CompressionPlugin = require('compression-webpack-plugin');
 
 const appPackageJson = require(paths.appPackageJson);
 
