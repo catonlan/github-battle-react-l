@@ -350,6 +350,15 @@ module.exports = function (webpackEnv) {
           include: paths.appSrc,
         },
         {
+          // 图片压缩,enforce: 'pre'强制预处理,在url-loader/svg-url-loader之前
+          test: /\.(gif|png|jpe?g|svg)$/i,
+          loader: 'image-webpack-loader',
+          // Specify enforce: 'pre' to apply the loader
+          // before url-loader/svg-url-loader
+          // and not duplicate it in rules with them
+          enforce: 'pre',
+        },
+        {
           // "oneOf" will traverse all following loaders until one will
           // match the requirements. When no loader matches it will fall
           // back to the "file" loader at the end of the loader list.
