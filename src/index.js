@@ -8,6 +8,8 @@ import {ConnectedRouter, } from 'connected-react-router';
 import configureStore, {history, } from './redux/store';
 
 const store = configureStore();
+
+console.log('store', store);
 const mountNote = document.getElementById('root');
 
 ReactDOM.render(

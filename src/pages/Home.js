@@ -32,8 +32,8 @@ class Home extends React.Component {
           >
           邮箱
           </InputItem>
-          <WhiteSpace />
-          <p>
+          <WhiteSpace size="lg" />
+          <p className="version">
           当前版本：<span>{process.env.REACT_APP_VERSION}</span>
           </p>
         </div>

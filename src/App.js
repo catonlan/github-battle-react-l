@@ -102,7 +102,7 @@ class App extends React.Component {
 
 
         {/*  底部栏 */}
-        <Footbar></Footbar>
+        <Footbar realName="heheh"></Footbar>
       </div>
 
     );
