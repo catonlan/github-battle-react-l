@@ -7,12 +7,38 @@ import Sidebar from './components/Sidebar';
 import Footbar from './components/Footbar';
 import {connect, } from 'react-redux';
 import {toggleSlidebar, } from './redux/actions/slidebar';
-import Home from './pages/Home';
-import Battle from './pages/Battle';
-import Popular from './pages/Popular';
-import Search from './pages/Search';
-import BattleResult from './pages/BattleResult';
 
+// import Home from './pages/Home';
+// import Battle from './pages/Battle';
+// import Popular from './pages/Popular';
+// import Search from './pages/Search';
+// import BattleResult from './pages/BattleResult';
+
+import Loadable from 'react-loadable';
+import Loading from './components/Loading';
+
+const Home = Loadable({
+  loader: () => import('./pages/Home'),
+  loading: Loading,
+});
+
+const Battle = Loadable({
+  loader: () => import('./pages/Battle'),
+  loading: Loading,
+});
+
+const BattleResult = Loadable({
+  loader: () => import('./pages/BattleResult'),
+  loading: Loading,
+});
+const Popular = Loadable({
+  loader: () => import('./pages/Popular'),
+  loading: Loading,
+});
+const Search = Loadable({
+  loader: () => import('./pages/Search'),
+  loading: Loading,
+});
 
 class App extends React.Component {
   constructor(props) {
