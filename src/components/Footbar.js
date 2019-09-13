@@ -25,10 +25,13 @@ class Footbar extends React.Component {
     }
 
 
-    const path = nextProps.router.location.pathname.substr(1); // 删除第一个字符
+    let path = nextProps.router.location.pathname.substr(1); // 删除第一个字符
 
     // 选择当前路径的底部栏tab
     if (path !== prevState.footerActive) {
+      if (path === '') {
+        path = 'home';
+      }
       return {
         footerActive: path,
       };
