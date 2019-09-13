@@ -27,7 +27,7 @@ class Home extends React.Component {
         <div>
           <InputItem clear
             defaultValue={this.props.user.email}
-            onChange={this.onChange}
+            onBlur={this.onChange}
             placeholder="请输入你的邮箱"
           >
           邮箱
