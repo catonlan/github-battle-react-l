@@ -16,7 +16,7 @@ const switchFooterTabSync = function (tabName = '') {
 const switchFooterTab = function (tabName = '') {
   // 使用redux Thunk后，内部函数可接收2方法，dispatch 和 getState参数
   return (dispatch, getState) => {
-    if (process.env.NODE_ENV == 'development') {
+    if (process.env.NODE_ENV === 'development') {
       const state = getState();
 
       console.log('switchFooterTab:', process.env, state);
