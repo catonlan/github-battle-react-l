@@ -15,9 +15,9 @@ const changeLanguage = function (lang = '', callback = null) {
     }
     api.getPopularRepos(lang).then((res) => {
       // 执行回调函数
-      if (myFun.isFunction(callback)) {
-        callback();
-      }
+      // if (myFun.isFunction(callback)) {
+      //   callback();
+      // }
       dispatch({
         type: CHANGE_LANGUAGE,
         data: {
@@ -25,6 +25,9 @@ const changeLanguage = function (lang = '', callback = null) {
           repos: res.items,
         },
       });
+      if (myFun.isFunction(callback)) {
+        callback();
+      }
     }).catch((err) => {
       Toast.fail(err, 2);
     });

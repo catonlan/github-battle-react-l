@@ -7,6 +7,7 @@ import footer from './reducers/footer';
 import user from './reducers/user';
 import battle from './reducers/battle';
 import popular from './reducers/popular';
+import search from './reducers/search';
 
 export default (history) => combineReducers({
   router: connectRouter(history),
@@ -15,4 +16,5 @@ export default (history) => combineReducers({
   user,
   battle,
   popular,
+  search,
 });
