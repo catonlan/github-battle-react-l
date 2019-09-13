@@ -143,3 +143,150 @@ li {
         }
 
 }
+
+
+
+/* 注释,以下为search相关样式 */
+.profile {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-top: 20px;
+
+    & a {
+        text-decoration: none;
+        border-bottom: 2px solid transparent;
+        -webkit-transition: all 1.25 ease-in;
+        -o-transition: 1.25 all ease-in;
+        transition: all 1.25 ease-in;
+        color: #d0021b;
+    }
+
+    & svg {
+        padding-right: 10px;
+    }
+
+    /*用户相关*/
+    & .profileInfo {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -ms-flex: 1 0 25%;
+        flex: 1 0 25%;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -ms-flex-align: top;
+        align-items: top;
+
+        &>div {
+            width: 250px;
+            margin: 10px;
+            -ms-flex-item-align: top;
+            align-self: top;
+            padding: 15px;
+            text-align: left;
+        }
+
+        & .profileLogo {
+            display: -ms-flexbox;
+            display: block;
+            justify-content: center;
+            border: 1px solid;
+            text-align: center;
+
+            & .avatar {
+                width: 180px;
+                border-radius: 50%;
+            }
+
+            & h3 {
+                display: block;
+                width: 100%;
+                clear: both;
+            }
+        }
+
+        & .profileRepos ul {
+            display: -ms-flexbox;
+            display: flex;
+            justify-content: center;
+
+        }
+    }
+
+    /*仓库相关*/
+    & .profileRepos {
+        text-align: left;
+
+        & ul {
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -ms-flex: 1 1 33%;
+            flex: 1 1 33%;
+            -ms-flex-pack: center;
+
+            & .noData {
+                text-align: center;
+                font-size: 14px;
+                width: 100%;
+                display: block;
+                color: darkslategray;
+            }
+
+            & .repo {
+                width: 300px;
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                margin: 25px;
+                padding: 20px;
+                -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, .46);
+                box-shadow: 0 1px 5px rgba(0, 0, 0, .46);
+
+                &>* {
+                    margin-top: 5px;
+                    margin-bottom: 0;
+                }
+
+                & .stats {
+                    display: -ms-flexbox;
+                    display: flex;
+                    -ms-flex-wrap: wrap;
+                    flex-wrap: wrap;
+                    -ms-flex-direction: row;
+                    flex-direction: row;
+                    padding: 5px 0;
+
+                    & span {
+                        margin-right: 30px;
+                    }
+                }
+
+                & .button-repo {
+                    color: #e6e6e6;
+                    background: dimgrey;
+                    border: 1px solid #e6e6e6;
+                    font-size: 15px;
+                    border-radius: 3px;
+                    width: 100px;
+                    text-align: center;
+                    padding: 7px 0;
+                    margin: 9px auto;
+                    -webkit-transition: all .05s ease-in;
+                    -o-transition: .05s all ease-in;
+                    transition: all .05s ease-in;
+                }
+            }
+        }
+    }
+
+}

@@ -23,9 +23,9 @@ class Profile extends React.Component {
           <li><span className="itemName">Public Repos:</span><span className="itemVal">{info.public_repos}</span></li>
 
           {/** 以下属性,若存在,则显示 */}
-          {info.name && <li><span className="itemName">用户：</span><span className="itemVal">{info.name}</span></li>}
-          {info.location && <li><span className="itemName">地区：</span><span className="itemVal">{info.location}</span></li>}
-          {info.company && <li><span className="itemName">公司：</span><span className="itemVal">{info.company}</span></li>}
+          {info.name && <li><span className="itemName">User:</span><span className="itemVal">{info.name}</span></li>}
+          {info.location && <li><span className="itemName">Location:</span><span className="itemVal">{info.location}</span></li>}
+          {info.company && <li><span className="itemName">Company</span><span className="itemVal">{info.company}</span></li>}
           {info.blog && (
             <li>
               <span className="itemName">博客：</span><span className="itemVal">{info.blog}</span>
