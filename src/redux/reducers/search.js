@@ -2,7 +2,6 @@
 
 import {SEARCH_USER, SEARCH_REPOS, CLEAR_SEARCH, } from '../actions/serach';
 import merge from 'lodash/merge';
-import { Accordion, } from 'antd-mobile';
 
 
 // 初始状态
@@ -40,7 +39,7 @@ export default function reducer(state = initState, action) {
     });
 
   default:
-    if (action.entities && Accordion.entities.comments) {
+    if (action.entities && action.entities.comments) {
       return merge({}, state, action.entities.comments.byId);
     }
 

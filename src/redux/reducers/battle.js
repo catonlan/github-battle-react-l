@@ -1,7 +1,7 @@
 // redux的reducer,操作battle信息
 import {CHANGE_PLAYERA, CHANGE_PLAYERB, COMPARE_CLEAR, COMPARE_RESULT, } from '../actions/battle';
 import myFun from '../../assets/js/myFun';
-import { merge, } from 'rxjs';
+import { merge, } from 'lodash/merge';
 
 // 初始化状态
 const initState = {
@@ -42,17 +42,17 @@ export default function reducer(state = initState, action) {
   case CHANGE_PLAYERA:
     avatar = action.data.info.avatar_url;
     return merge( {}, state, {
-      player_a_name: action.payload.username,
-      player_a_status: action.payload.status,
-      player_a_info: action.payload.info,
+      player_a_name: action.data.username,
+      player_a_status: action.data.status,
+      player_a_info: action.data.info,
       player_a_avatar: avatar,
     });
   case CHANGE_PLAYERB:
     avatar = action.data.info.avatar_url;
     return merge({}, state, {
-      player_b_name: action.payload.username,
-      player_b_status: action.payload.status,
-      player_b_info: action.payload.info,
+      player_b_name: action.data.username,
+      player_b_status: action.data.status,
+      player_b_info: action.data.info,
       player_b_avatar: avatar,
     });
   case COMPARE_CLEAR:
