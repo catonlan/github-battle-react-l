@@ -2,7 +2,7 @@ import React from 'react';
 import animate from '@jam3/gsap-promise';
 import {InputItem, Button, Toast, WhiteSpace, } from 'antd-mobile';
 import {connect, } from 'react-redux';
-import {searchUser, searchRepos, clearSearch, } from '../redux/actions/search';
+import {searchUser, searchRepos, clearSearch, } from '../redux/actions/serach';
 import SearchUser from '../components/SearchUser';
 import SearchRepos from '../components/SearchRepos';
 

@@ -1,7 +1,7 @@
 // redux的reducer,操作battle信息
 import {CHANGE_PLAYERA, CHANGE_PLAYERB, COMPARE_CLEAR, COMPARE_RESULT, } from '../actions/battle';
 import myFun from '../../assets/js/myFun';
-import { merge, } from 'lodash/merge';
+import merge from 'lodash/merge';
 
 // 初始化状态
 const initState = {
@@ -11,7 +11,7 @@ const initState = {
   player_a_info: {},
   player_a_avatar: '',
 
-  // 选手A的用户名和信息,状态，头像
+  // 选手B的用户名和信息,状态，头像
   player_b_name: '',
   player_b_status: false,
   player_b_info: {},
@@ -63,9 +63,10 @@ export default function reducer(state = initState, action) {
     });
   case COMPARE_RESULT:
     return merge({}, state, {
+      battle_result: action.result ? 1 : -1,
       player_winner: action.result ? action.players[0] : {},
       player_loser: action.result ? action.players[1] : {},
-      battle_result: action.result ? 1 : -1,
+
     });
 
   default:

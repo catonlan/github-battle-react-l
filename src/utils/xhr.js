@@ -77,9 +77,7 @@ Xhr.interceptors.response.use(
 
     switch (response.status) {
     case 200: // 正常
-      if (!response.data.status) {
-        Toast.fail(response.data.msg, 1);
-      }
+
       break;
     case 404:
       Toast.info('404错误!', 1);

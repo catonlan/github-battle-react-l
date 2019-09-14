@@ -47,7 +47,7 @@ class App extends React.Component {
   render() {
     return (
 
-      <div className="App">
+      <div >
         <NavBar icon={<Icon type="ellipsis" />}
           onLeftClick={() => this.props.toggleSlidebar()}
           rightContent={
@@ -61,7 +61,7 @@ class App extends React.Component {
         <Drawer
           className="my-drawer"
           contentStyle={{color: '#A6A6A6', textAlign: 'center', }}
-          enableDragHandle
+
           onOpenChange={() => this.props.toggleSlidebar()}
           open={this.props.slidebar.sliderOpen}
           sidebar={<Sidebar />}
@@ -75,7 +75,7 @@ class App extends React.Component {
             />
             <Route component={Home}
               exact
-              path="/Home"
+              path="/home"
             />
             <Route component={Battle}
               exact

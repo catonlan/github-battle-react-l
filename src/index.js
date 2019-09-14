@@ -8,14 +8,14 @@ import {ConnectedRouter, } from 'connected-react-router';
 import configureStore, {history, } from './redux/store';
 
 const store = configureStore();
-const mountNote = document.getElementById('root');
+const mountNode = document.getElementById('root');
 
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <App />
     </ConnectedRouter>
-  </Provider>, mountNote
+  </Provider>, mountNode
 );
 
 // If you want your app to work offline and load faster, you can change
