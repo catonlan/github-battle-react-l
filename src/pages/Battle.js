@@ -24,14 +24,14 @@ class Battle extends React.Component {
   }
 
       onChangeA = (value) => {
-        value = value.replace(/\s/g);
+        value = value.replace(/\s/g, '');
         if (value !== '') {
           this.props.changeA(value);
         }
         return;
       }
       onChangeB = (value) => {
-        value = value.replace(/\s/g);
+        value = value.replace(/\s/g, '');
         if (value !== '') {
           this.props.changeB(value);
         }
@@ -73,7 +73,7 @@ class Battle extends React.Component {
             defaultValue={this.props.battle.player_b_name}
             onBlur={this.onChangeB}
             placeholder="请输入选手B"
-            value={''}
+
           >
             <Avatar className="avatar"
               icon="user"

@@ -11,11 +11,11 @@ import animate from '@jam3/gsap-promise';
 class BattleResult extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      winner: null,
-      loser: null,
-      show: false,
-    };
+    // this.state = {
+    //   winner: null,
+    //   loser: null,
+    //   show: false,
+    // };
   }
 
   // 在挂载之前被调用
@@ -63,7 +63,7 @@ class BattleResult extends React.Component {
         //     return;
       }
 
-      Toast.loading('loading...', 0);
+      Toast.loading('Loading...', 0);
       this.props.clear();
       this.props.doCompare([this.props.battle.player_a_name, this.props.battle.player_b_name, ], () => {
         // 有结果后关闭loading
@@ -88,7 +88,7 @@ class BattleResult extends React.Component {
       return (
         <div className="row">
           <div className="resImg">
-            <img src={resultImg} />
+            <img src={resultImg} ></img>
           </div>
           <Player label="胜出"
             profile={player_winner.profile}
