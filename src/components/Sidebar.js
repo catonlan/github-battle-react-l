@@ -2,7 +2,7 @@
 import React from 'react';
 import {List, } from 'antd-mobile';
 import {connect, } from 'react-redux';
-import {push, } from 'connected-react-router';
+// import {push, } from 'connected-react-router';
 import thumbImg from '../assets/image/gray.png';
 import {toggleSlidebar, } from '../redux/actions/slidebar';
 import {switchFooterTab, } from '../redux/actions/footer';
@@ -24,17 +24,17 @@ class Sidebar extends React.Component {
       },
       {
         title: '对比',
-        name: '/battle',
+        name: 'battle',
         thumb: thumbImg,
       },
       {
         title: '热门',
-        name: '/popular',
+        name: 'popular',
         thumb: thumbImg,
       },
       {
         title: '搜索',
-        name: '/search',
+        name: 'search',
         thumb: thumbImg,
       },
     ];
@@ -70,14 +70,14 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     sliderClick: (name) => {
-      const url = '/' + name;
+      // const url = '/' + name;
 
       console.log('slider click:', name);
       dispatch(toggleSlidebar());
       dispatch(switchFooterTab(name));
 
-      console.log('sliderClick:', url);
-      dispatch(push(url));
+      // console.log('sliderClick:', url);
+      // dispatch(push(url));
     },
   };
 };

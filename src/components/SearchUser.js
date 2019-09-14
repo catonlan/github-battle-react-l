@@ -58,7 +58,7 @@ class SearchUser extends React.Component {
             />
             {profile.location}
           </p>
-          {profile.company && <h4>company:{profile.company}</h4>}
+          {profile.company && <h4>Company:{profile.company}</h4>}
           {profile.bio && <p>{profile.bio}</p>}
         </div>
         <div>
@@ -86,14 +86,14 @@ class SearchUser extends React.Component {
               icon={faUsers}
             />
                         Followers:
-            {profile.public_followers}
+            {profile.followers}
           </p>
           <p>
             <FontAwesomeIcon fixedWidth
               icon={faUsers}
             />
                         Following:
-            {profile.public_following}
+            {profile.following}
           </p>
           <h5>
             <FontAwesomeIcon fixedWidth

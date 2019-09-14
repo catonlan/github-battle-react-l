@@ -41,10 +41,10 @@ class SearchRepos extends React.Component {
                     <FontAwesomeIcon fixedWidth
                       icon={faCodeBranch}
                     />
-                                        Forks: {repo.stargazers_count}
+                                  Forks: {repo.forks_count}
                   </span>
                 </div>
-                <p>{repo.language ? `Min Language: ${repo.language}` : ''}</p>
+                <p>{repo.language ? `Main Language: ${repo.language}` : ''}</p>
                 <br/>
                 <a className="button-repo"
                   href={repo.html_url}

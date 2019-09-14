@@ -47,7 +47,7 @@ class RepoGrid extends React.Component {
     const repos = this.props.repos;
 
     return (
-      <a className="popular-list">
+      <ul className="popular-list">
         {repos.map((repo, index) => {
           return (
             <li className="popular-item"
@@ -55,7 +55,7 @@ class RepoGrid extends React.Component {
               key={repo.name}
             >
               <div className="popular-rank">#{index + 1}</div>
-              <a className="space-list-items">
+              <ul className="space-list-items">
                 <li>
                   <LazyLoad height={150}
                     offsetVertical={200}
@@ -67,18 +67,18 @@ class RepoGrid extends React.Component {
                   </LazyLoad>
                 </li>
 
-                <a>
+                <li>
                   <a href={repo.html_url}>
                     {repo.name}
                   </a>
-                </a>
+                </li>
                 <li>@{repo.owner.login}</li>
                 <li>{repo.stargazers_count} stars</li>
-              </a>
+              </ul>
             </li>
           );
         })}
-      </a>
+      </ul>
     );
   }
 }
