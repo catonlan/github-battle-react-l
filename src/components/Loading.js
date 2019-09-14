@@ -12,7 +12,7 @@ class Loading extends React.Component {
       if (this.props.timedOut) {
         return <div>Loader timed out!</div>;
       } else if (this.props.pastDelay) {
-        return <div>Loading........</div>;
+        return <div>Loading....xxx....</div>;
       }
       return null;
     } else if (this.props.error) {

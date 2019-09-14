@@ -35,6 +35,7 @@ const calculateScore = function (profile, repos) {
  */
 
 const sortPlayers = function (players) {
+  // 如果自定义排序函数compareFunction(a, b) 大于 0 ， b 会被排列到 a 之前
   return players.sort((a, b) => {
     return b.score - a.score;
   });
@@ -124,6 +125,7 @@ const getUserData = function (username) {
   return axios.all([getProfileByName(username), getUserRepos(username), ])
     .then(axios.spread((profile, repos) => {
       // console.log('getUserData:', profile, repos);
+      // let profile,repos = [res1, res2]
       return {
         profile: profile,
         score: calculateScore(profile, repos),
