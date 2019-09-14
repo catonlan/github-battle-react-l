@@ -19,7 +19,7 @@ const changePlayer = function (userName = '', type = '') {
   };
 
   return (dispatch, getState) => {
-    api.getUserByName(userName).then((res) => {
+    api.getProfileByName(userName).then((res) => {
       data.info = res;
       data.status = true;
       dispatch({

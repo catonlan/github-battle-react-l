@@ -2,7 +2,7 @@ import React from 'react';
 import animate from '@jam3/gsap-promise';
 import {InputItem, Button, Toast, WhiteSpace, } from 'antd-mobile';
 import {connect, } from 'react-redux';
-import {searchUser, searchRepos, clearSearch, } from '../redux/actions/serach';
+import {searchUser, searchRepos, clearSearch, } from '../redux/actions/search';
 import SearchUser from '../components/SearchUser';
 import SearchRepos from '../components/SearchRepos';
 
@@ -21,6 +21,7 @@ class Search extends React.Component {
   }
 
   onChange(value) {
+    console.log('onChange:', value);
     value = value.replace(/\s/g, '');
 
     if (value === '' && this.props.search.userName !== '') {
@@ -41,7 +42,7 @@ class Search extends React.Component {
         Toast.hide();
 
         // 然后搜索用户的仓库
-        this.props.SearchRepos(this.state.username);
+        this.props.searchRepos(this.state.username);
       });
     }
     return;
@@ -73,7 +74,7 @@ class Search extends React.Component {
       </div>
       <div className="profile">
         {this.props.search.userInfo && <SearchUser profile={this.props.search.userInfo} />}
-        {this.props.search.userRepos && <SearchRepos profile={this.props.search.userRepos} />}
+        {this.props.search.userRepos && <SearchRepos repos={this.props.search.userRepos} />}
       </div>
     </div>);
   }
@@ -88,7 +89,7 @@ const mapStateToProps = (state) => {
 
 
 // 绑定分发器
-const mapDispatchToPrpos = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     clear: () => {
       dispatch(clearSearch());
@@ -102,4 +103,4 @@ const mapDispatchToPrpos = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToPrpos)(Search);
+export default connect(mapStateToProps, mapDispatchToProps)(Search);

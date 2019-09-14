@@ -36,7 +36,7 @@ class Popular extends React.Component {
     return (<div>
       <h1 ref={(c) => {this.topHeader = c;}}>热门项目</h1>
       <Language
-        const
+
         onSelect={this.updateLanguage.bind(this)}
 
         selectedLang={this.props.popular.selectedLang}
