@@ -8,7 +8,7 @@ class Loading extends React.Component {
 
 
   render() {
-    if (this.props.isLoding) {
+    if (this.props.isLoading) {
       if (this.props.timedOut) {
         return <div>Loader timed out!</div>;
       } else if (this.props.pastDelay) {

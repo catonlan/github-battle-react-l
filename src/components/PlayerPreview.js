@@ -14,6 +14,7 @@ class PlayerPreview extends React.Component {
       <div>
         <div className="column">
           <img alt={'Avatar for' + this.props.username}
+            className="avatar"
             src={this.props.avatar}
           />
           <h2 className="username">@{this.props.username}</h2>
@@ -26,7 +27,7 @@ class PlayerPreview extends React.Component {
 
 
 // 检查类型
-PlayerPreview.PropTypes = {
+PlayerPreview.propTypes = {
   avatar: PropTypes.string.isRequired, // 必传属性
   username: PropTypes.string.isRequired,
 };
